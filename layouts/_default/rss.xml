@@ -6,7 +6,7 @@
 {{- else -}}
 {{- $pages = $pctx.Pages -}}
 {{- end -}}
-{{- $pages := where $pages "Params.hidden" "!=" true -}}
+{{- $pages = where (where $pages "Params.hidden" "!=" true) ".Section" "post" -}}
 {{- $limit := .Site.Config.Services.RSS.Limit -}}
 {{- if ge $limit 1 -}}
 {{- $pages = $pages | first $limit -}}
