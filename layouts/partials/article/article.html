@@ -8,4 +8,26 @@
     {{ if or .Params.math .Site.Params.article.math }}
         {{ partialCached "article/components/math.html" . }}
     {{ end }}
+
+    <nav>
+        <hr style="height:2px;border-width:0;color:gray;background-color:gray"> 
+        {{with .Next}}
+        <div>
+            <span style="display:flex; float: left; vertical-align: middle; line-height: 64px; margin-left: 20px;">
+                &nbsp;<a style="font-size: 24px;" href="{{.Permalink}}">{{ partial "helper/icon" "left-arrow" }} Previous</a>
+            {{end}}
+            </span>
+
+            {{with .Prev}}
+            <span style="display:flex; float: right; vertical-align: middle; line-height: 64px; margin-right: 20px;">
+                <a style="font-size: 24px;" href="{{.Permalink}}">Next {{ partial "helper/icon" "right-arrow" }}</a>
+            {{end}}
+            </span>
+        </div>
+    </nav>
+    <p>
+        <br />
+        <br />
+        <br />
+    </p>
 </article>
